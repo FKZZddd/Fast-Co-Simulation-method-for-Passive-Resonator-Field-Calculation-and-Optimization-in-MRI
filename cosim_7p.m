@@ -1,0 +1,15 @@
+function [Sports, weights] = cosim_7p(s_matrix, C1, C2, C3, C4, C5, C6, C7)
+    f=128.0*1e6; %  Hz for 3T
+    Res=100000*33.5E3;
+    omega=2*pi*f;
+    %Converts capacitance (C1 to C10) into impedance.
+    Z_C1=par(1/(1i*omega*C1*1e-12), Res);
+    Z_C2=par(1/(1i*omega*C2*1e-12), Res);
+    Z_C3=par(1/(1i*omega*C3*1e-12), Res);
+    Z_C4=par(1/(1i*omega*C4*1e-12), Res);
+    Z_C5=par(1/(1i*omega*C5*1e-12), Res);
+    Z_C6=par(1/(1i*omega*C6*1e-12), Res);
+    Z_C7=par(1/(1i*omega*C7*1e-12), Res);
+
+    [Sports, weights]=cosimulation(s_matrix, {[] ,[], Z_C1, Z_C2, Z_C3, Z_C4, Z_C5, Z_C6, Z_C7});
+end
