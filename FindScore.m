@@ -10,3 +10,7 @@ function Score = FindScore(s_matrix,H_all_1,Phase_2Port,cc,w_target,w_rest,MASK_
     Score = abs(WeightSum(w_target,w_rest,targert_R,rest_R))
 
 end
+
+function Score = WeightSum(w_target,w_rest,targert_R,rest_R)
+Score=w_target*targert_R+w_rest*rest_R
+end

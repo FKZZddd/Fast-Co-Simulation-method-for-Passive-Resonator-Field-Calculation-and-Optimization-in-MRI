@@ -9,7 +9,7 @@
 
 %Load data
 close all;
-if 0
+if 1
     % Import S-parameters from a 9-port Touchstone file (.s9p)
     s_params=sparameters('Correct_AfCo_BodyCoilOnly_16Leg_short_20222_9WL_Nothing.s9p'); %import SNP FILE
     s_matrix=s_params.Parameters; %view the S-parameter
@@ -46,7 +46,7 @@ SLICE = zeros(zNum, yNum, xNum);
 SLICE(95,:,:) = 1;   
 [ZI,YI,XI]=ndgrid(1:zNum,1:yNum,1:xNum);
 
-% Define slice being showed 
+% Define slice
 % Define target region and rest of region for optimization
 MASK_PHANTOM_SLICE=MASK_PHANTOM & (ZI>94)& (ZI<96); 
 MASK_PHANTOM_SLICE_TARGET=MASK_PHANTOM_SLICE & (XI>5) & (XI<35);
