@@ -70,7 +70,7 @@ nVars = 2;
 lb    = [1e-3, 1e-3];
 ub    = [50,    50   ];
 options = optimoptions('ga', 'Display', 'iter', 'PlotFcn', {@gaplotbestf}, ...
-    'PopulationSize', 65, 'MaxGenerations', 150, 'UseParallel', true, 'FunctionTolerance', 1e-6);
+    'PopulationSize', 100, 'MaxGenerations', 150, 'UseParallel', true, 'FunctionTolerance', 1e-6);
 
 [cc_opt, fval_opt] = ga(fitnessFcn, nVars, [], [], [], [], lb, ub, [], options);
 
